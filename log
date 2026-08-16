@@ -25,3 +25,13 @@ Sun Aug 16 09:03:35 PM UTC 2026:
  tests:  9|0
 total_score: 70/70
 bf71c1d
+Sun Aug 16 10:37:17 PM UTC 2026: 
+ exercises.c | 24 ++++++++++++++++++------
+ 1 file changed, 18 insertions(+), 6 deletions(-)
+Compilation failed
+In file included from test.c:5:
+exercises.c: In function ‘copia_pila’:
+exercises.c:97:13: error: implicit declaration of function ‘isEmpty’ [-Wimplicit-function-declaration]
+   97 |     while (!isEmpty(P1)) {
+      |             ^~~~~~~
+f703098
