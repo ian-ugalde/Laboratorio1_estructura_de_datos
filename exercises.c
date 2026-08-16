@@ -93,27 +93,15 @@ Puedes usar una pila auxiliar.
 */
 
 void copia_pila(Stack* P1, Stack* P2) {
-    Stack *aux = create_stack();
-    while (!isEmpty(P1)) {
-        push(aux, pop(P1));
+    Stack* aux = create_stack();
+    void *dato;
+    while ((dato = pop(P1)) != NULL) {
+        push(aux, dato);
     }
-    while (!isEmpty(aux)) {
-        push(P2, pop(aux));
+    while ((dato = pop(aux)) != NULL) {
+        push(P1, dato);
+        push(P2, dato);
     }
-
-    while (!isEmpty(P2)) {
-        push(aux, pop(P2));
-    }
-    while (!isEmpty(aux)) {
-        push(P1, pop(aux));
-    }
-    while (!isEmpty(P1)) {
-        push(aux, pop(P1));
-    }
-    while (!isEmpty(aux)) {
-        push(P2, pop(aux));
-    }
-    free(aux);
 }
 
 /*
@@ -143,6 +131,7 @@ int parentesisBalanceados(char *cadena) {
             if ((c == ')' && apertura != '(') ||
                 (c == ']' && apertura != '[') ||
                 (c == '}' && apertura != '{')) {
+
                 void *d;
                 while ((d = pop(P)) != NULL) free(d);
                 return 0;
